@@ -29,4 +29,6 @@ body {
     height: 13%;
     background-color:blue ;
     border-radius: 25%;
+    margin-left: 1px;
+    margin-right: 1px;
 }
