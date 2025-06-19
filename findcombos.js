@@ -24,16 +24,13 @@ function findCombos(){
             pair = [];
         }
         startingIndex = startingIndex-10;
-    }else{
-        if(pair.length > 2){
+    }
+        }
+        if(pair.length>2){
             let found_pair = pair;
             known_pairs.push(found_pair);
         }
-    }
-           if(known_pairs.length>0 && (next_element)){
-            console.log(`known pairs are ${known_pairs}`);
-           }
-        }
+        console.log(`known pairs are ${known_pairs}`)
 }
 
 
