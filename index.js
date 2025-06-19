@@ -6,6 +6,7 @@
 // also there probably will have to be that drag-and-drop thing, as I will have to pull an element over another piece, so they kind of cross, and then upon mouseup event the comparison will either click
 // in favor of the condition or fail, leaving the initial element it its place
 
+
 const game_matrix = [
     {id: 11, contains: {}},{id: 12, contains: {}}, {id: 13, contains: {}}, {id: 14, contains: {}}, {id: 15, contains: {}}, {id: 16, contains: {}}, {id: 17, contains: {}},
     {id: 21, contains: {}},{id: 22, contains: {}}, {id: 23, contains: {}}, {id: 24, contains: {}}, {id: 25, contains: {}}, {id: 26, contains: {}}, {id: 27, contains: {}},
@@ -67,14 +68,13 @@ function spawn_element(){
 function fill_board_initial(){
     for(i = 0; i < game_matrix.length; i++){
        game_matrix[i].contains = spawn_element();
-    }   
+    }
 }
 
 
 
-fill_board_initial(game_matrix);
-
-function populate_board(){
+function generateCells(){
+    // the function basically spawns the required n of divs to later be populated with elements
     let board = document.getElementById('gameBoard');
     for(let i = 0; i<49; i++){
         let element = document.createElement('div');
@@ -83,14 +83,13 @@ function populate_board(){
         element.style.backgroundColor = game_matrix[i].contains.style;
         board.appendChild(element);
     }
-
-    console.log(board);
 }
 
 
- window.onload = function(){
-populate_board();
-} 
+window.onload = function(){
+generateCells();
+findCombos()
+}
+
+fill_board_initial(game_matrix);
  
-console.table(game_matrix);
-console.log(game_matrix[0].contains.style)
