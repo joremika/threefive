@@ -29,38 +29,45 @@ function spawn_element(){
     // between 0 and 99 both included 
     if (num >= 0 && num < 20){
         // between 0 and 19 so 20% chance to spawn
-        let element = new create_element("cat")
-        element.style = "red";
+        let element = new create_element("eye")
+        // element.style = "red";
+        element.img = "./elements/glaz.png";
         return element;
     }else if(num >= 20 && num < 40){
         // between 20 and 39 so 20% chance to spawn
-        let element = new create_element("star")
-        element.style = "orange";
+        let element = new create_element("palm")
+        // element.style = "orange";
+        element.img = "./elements/palm.png"
         return element;
     }else if(num >=40 && num < 60){
         // between 40 and 59 so 20% chance to spawn
-        let element = new create_element("octopus")
-        element.style = "yellow";
+        let element = new create_element("cross")
+        // element.style = "yellow";
+        element.img = "./elements/cross.png"
         return element;
     }else if(num >=60 && num < 80){
         // betweeen 60 and 79 so 20% chance to spawn
-        let element = new create_element("squid")
-        element.style = "green";
+        let element = new create_element("blade")
+        // element.style = "green";
+        element.img = "./elements/blade1.png"
         return element;
     }else if(num >= 80 && num < 90){
         // bewtween 80 and 89 so 10 % chance to spawn
-        let element = new create_element("dancing cat")
-        element.style = "pink";
+        let element = new create_element("torch")
+        // element.style = "pink";
+        element.img = "./elements/torch.png"
         return element;
     }else if(num >= 90 && num < 95){
         // between 90 and 94 so 5% chance to spawn
-        let element = new create_element("cockroach")
-        element.style = "black";
+        let element = new create_element("skull")
+        // element.style = "black";
+        element.img = "./elements/skull.png"
         return element;
     }else{
         // between 95 and 99 so 5% chance to spawn
-        let element = new create_element("lightning")
-        element.style = "white";
+        let element = new create_element("d")
+        // element.style = "white";
+        element.img = "./elements/d.png"
         return element;
     }
 }
@@ -81,6 +88,9 @@ function generateCells(){
         element.classList.add('boardElement');
         element.id = i; 
         element.style.backgroundColor = game_matrix[i].contains.style;
+        element.style.backgroundImage = `url(${game_matrix[i].contains.img})`
+        element.style.backgroundRepeat = "no-repeat";
+        element.style.backgroundPosition = 'center';
         board.appendChild(element);
     }
 }
@@ -93,3 +103,4 @@ findCombos()
 
 fill_board_initial(game_matrix);
  
+console.log(game_matrix);
